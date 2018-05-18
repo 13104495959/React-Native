@@ -1,4 +1,5 @@
+//  ①声明程序的入口文件
 import { AppRegistry } from 'react-native';
-import MainScreen from './src/components/presentatuonalComponents/MainScreen';
+import MainScreenContainer from './src/components/containerComponents/MainScreenContainer';
 
-AppRegistry.registerComponent('ReduxAndReduxReactAndReduxThunkProject', () => MainScreen);
+AppRegistry.registerComponent('ReduxAndReduxReactAndReduxThunkProject', () => MainScreenContainer);

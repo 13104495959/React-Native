@@ -1,10 +1,7 @@
+//  ②实现程序的入口文件,此文件是容器组件
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {} from 'react-native';
+//  ③引入redux,react-redux,redux-thunk头文件文件,引入reducer的集合头文件CombineReducers,引入主UI的头文件
 //  引入redux的头文件
 import { createStore, applyMiddleware, compose } from 'redux';
 //  引入react-redux的头文件
@@ -13,6 +10,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 //  引入reducer的集合头文件
 import CombineReducers from '../../reducers/CombineReducers';
+//  引入MainHeaderScreenContainer
+import MainHeaderScreenContainer from '../containerComponents/MainHeaderScreenContainer';
+
+//  ④创建store,一个程序中store只能有一个
 //  创建store(已使用中间件react-thunk)
 //  注意CombineReducers此文件不能为空集合
 const store = createStore(CombineReducers, {}, compose(
@@ -20,16 +21,13 @@ const store = createStore(CombineReducers, {}, compose(
   applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
-export default class MainScreen extends Component<Props> {
+
+//  ⑤使用Provider标签包裹主UI组件
+export default class MainScreenContainer extends Component {
   render() {
     return (
-        <Provider store={store}>
-      <View>
-        <Text>
-          我是reactNative的测试文件
-        </Text>
-      </View>
-      </Provider>
+      //  使用Provider(并给store属性赋值)标签包裹应该返回的组件
+      <Provider store={store}><MainHeaderScreenContainer /></Provider>
     );
   }
 }

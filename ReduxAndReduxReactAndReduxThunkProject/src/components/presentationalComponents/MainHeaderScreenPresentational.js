@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,  } from 'react-native';
 
-class MainHeaderScreen extends Component {
+class MainHeaderScreenPresentational extends Component {
   render() {
     return (
       <View>
@@ -11,4 +11,4 @@ class MainHeaderScreen extends Component {
   }
 }
 
-export default MainHeaderScreen;
+export default MainHeaderScreenPresentational;
